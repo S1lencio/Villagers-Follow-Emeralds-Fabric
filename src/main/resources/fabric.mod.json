@@ -1,32 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "villagers-follow-emeralds",
+  "id": "villagersfollowemeralds",
   "version": "${version}",
-  "name": "Villagers Follow Emeralds",
+
+  "name": "VillagersFollowEmeralds",
   "description": "Villagers will follow you when you're holding emerald blocks/ore",
   "authors": [
     "Matjojo",
     "Contributor: Hyperbean18",
     "Contributor: Silencio"
   ],
-  "contributors": [],
-  "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/villagers-follow-emeralds-fabric",
-    "sources": "https://github.com/Hyperbean18/Villagers-Follow-Emeralds-Fabric",
-    "issues": "https://github.com/Hyperbean18/Villagers-Follow-Emeralds-Fabric/issues"},
+  "contact": {},
+
   "license": "MIT",
-  "icon": "assets/villagers-follow-emeralds/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [],
-    "client": [],
-    "server": []
-  },
+  "icon": "assets/icon.png",
+
   "mixins": [
-    "villagers-follow-emeralds.mixins.json"
+    "villagersfollowemeralds.mixins.json"
   ],
+
   "depends": {
-    "fabricloader": "*",
-    "minecraft": "*"
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
   }
 }

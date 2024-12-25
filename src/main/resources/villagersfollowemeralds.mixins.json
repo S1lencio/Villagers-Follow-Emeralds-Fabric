@@ -1,12 +1,11 @@
 {
   "required": true,
-  "package": "matjojo.mixin",
+  "minVersion": "0.8",
+  "package": "de.silencio.villagersfollowemeralds.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "villagerInitMixin"
+    "VillagerEntityMixin"
   ],
-  "client": [],
-  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
