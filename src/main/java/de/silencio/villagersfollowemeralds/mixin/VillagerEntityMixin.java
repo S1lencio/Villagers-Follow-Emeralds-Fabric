@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.village.VillagerType;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,8 +33,8 @@ public abstract class VillagerEntityMixin extends MerchantEntity {
     }
 
     // Inject TemptGoal
-    @Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;Lnet/minecraft/village/VillagerType;)V", at = @At(value = "TAIL"))
-    private void injectGoal(EntityType<? extends VillagerEntity> entityType, World world, VillagerType type, CallbackInfo ci) {
+    @Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;Lnet/minecraft/registry/entry/RegistryEntry;)V", at = @At("TAIL"))
+    private void injectGoal(EntityType<? extends VillagerEntity> entityType, World world, RegistryEntry<VillagerType> type, CallbackInfo ci) {
         this.goalSelector.add(2, new TemptGoal(this, 0.4D, Ingredient.ofItems(Items.EMERALD_BLOCK, Items.EMERALD_ORE, Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD), false));
     }
 }
