@@ -24,11 +24,11 @@ public abstract class VillagerEntityMixin extends MerchantEntity {
         super(entityType, world);
     }
 
-    // Injecting the "tempt_range" attribute to VillagerEntity
+    // Inject the "tempt_range" attribute to VillagerEntity, needed for TemptGoal
     @Inject(method = "createVillagerAttributes", at = @At("RETURN"), cancellable = true)
     private static void injectTemptRangeAttribute(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir) {
         DefaultAttributeContainer.Builder builder = cir.getReturnValue();
-        builder.add(EntityAttributes.TEMPT_RANGE, 16.0D); // Define tempt_range attribute
+        builder.add(EntityAttributes.TEMPT_RANGE, 16.0D); // I pulled 16.0D out of my ass, same with 0.4D below
         cir.setReturnValue(builder);
     }
 
