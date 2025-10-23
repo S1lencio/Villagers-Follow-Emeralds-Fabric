@@ -1,4 +1,4 @@
-package de.silencio.villagersfollowemeralds.mixin;
+package de.coinflipcoder.villagersfollowemeralds.mixin;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.TemptGoal;
