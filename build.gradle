@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.11-SNAPSHOT'
+    id 'fabric-loom' version '1.15-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -10,6 +10,16 @@ base {
     archivesName = project.archives_base_name
 }
 
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        "temp" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
 
 fabricApi {
     configureDataGeneration {
@@ -31,7 +41,7 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 }
 
 processResources {
@@ -71,13 +81,10 @@ java {
 }
 
 jar {
-    inputs.property "archivesName", project.base.archivesName
-
     from("LICENSE") {
-        rename { "${it}_${inputs.properties.archivesName}"}
+        rename { "${it}_${project.archives_base_name}" }
     }
 }
-
 
 // configure the maven publication
 publishing {
